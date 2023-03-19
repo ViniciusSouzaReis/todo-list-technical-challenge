@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
+import UserTasks from './pages/UserTasks';
 
 import './App.css';
 
@@ -9,6 +10,7 @@ function App() {
     <Routes>
       <Route path="/" element={ <Navigate to="/login" /> } />
       <Route path="/login" element={ <Login /> } />
+      <Route path="/:name/tasks" element={ <UserTasks />} />
     </Routes>
   );
 }

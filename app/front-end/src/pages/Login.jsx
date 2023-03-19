@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import httpRequestAxios from '../services/httpRequestAxios';
 import httpCodeHandler from '../assets/httpCodeHandler';
 
-import { writeStorage } from '../utils/localStorage';
+import { writeStorage, readStorage, removeKey } from '../utils/localStorage';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -31,11 +31,20 @@ function Login() {
     };
   };
 
-  // useEffect(() => {
-  //   setFailedTryLogin(false);
-  // }, [email, password]);
+  useEffect(() => {
+    const user = readStorage();
 
-  // if (isLogged) return <Navigate to="" />;
+    async function verifyToken() {
+      const { status } = await httpRequestAxios('post', 'http://localhost:3001/token', {}, { headers: { Authorization: user.token } });
+      if (httpCodeHandler.notFound(status)) {
+        removeKey();
+      } else {
+        navigate(`/${user.name}/tasks`);
+      }
+    }
+
+    if (user.length !== 0) verifyToken();
+  });
 
   return (
     <section>

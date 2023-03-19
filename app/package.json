@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node back-end/src/api/server.js",
+    "db:start": "node back-end/src/api/server.js",
     "dev": "nodemon back-end/src/api/server.js"
   },
   "keywords": [],

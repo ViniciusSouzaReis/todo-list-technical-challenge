@@ -1,7 +1,5 @@
 const { UserTasks } = require('../../database/models');
 
-const getUser = (id) => UserTasks.findOne({ where: { user_id: id } });
-
 const getUserTasks = async (id) => {
   const getUser = await UserTasks.findAll({ 
     where: { user_id: id },
@@ -13,6 +11,18 @@ const getUserTasks = async (id) => {
   return {type: 200, message: getUser};
 };
 
+const createTask = async (id, data) => {
+  const newTask = {
+    user_id: id,
+    task: data,
+  }
+
+  await UserTasks.create(newTask);
+
+  return { type: 201, message: 'Task created' };
+};
+
 module.exports = {
   getUserTasks,
+  createTask,
 }

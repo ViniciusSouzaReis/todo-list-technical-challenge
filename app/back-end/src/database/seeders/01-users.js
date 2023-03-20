@@ -5,15 +5,15 @@ module.exports = {
         id: 1,
         name: 'Fulano Silva',
         email: 'fulano@email.com',
-        password: 'a4c86edecc5aee06eff8fdeda69e0d04',
-        // senha: md5('--adm2@21!!--')
+        password: 'e10adc3949ba59abbe56e057f20f883e',
+        // senha: md5('123456')
       },
       {
         id: 2,
         name: 'Ciclano Souza',
         email: 'ciclano@email.com',
-        password: '3c28d2b0881bf46457a853e0b07531c6',
-        // senha: md5('fulana@123')
+        password: 'e10adc3949ba59abbe56e057f20f883e',
+        // senha: md5('123456')
       },
       ], { timestamps: false });
   },

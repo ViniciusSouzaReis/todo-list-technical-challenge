@@ -7,6 +7,8 @@ import Form from 'react-bootstrap/Form';
 import httpRequestAxios from '../services/httpRequestAxios';
 import httpCodeHandler from '../assets/httpCodeHandler';
 
+import '../styles/TaskList.css';
+
 function TaskList() {
   const [list, setList] = useState([]);
   const [newTask, setNewTask] = useState('');
@@ -21,7 +23,7 @@ function TaskList() {
 
     const body = {
       data: newData.newTask,
-    }
+    };
 
     const { status } = await httpRequestAxios('post', `http://localhost:3001/register/${user.id}`, body);
     if (httpCodeHandler.conflict(status)) setTaskExist(true);
@@ -67,12 +69,12 @@ function TaskList() {
   };
   
   return (
-    <section>
+    <section className='main-container-tasks'>
       <Form 
         onSubmit={ (event) => registerTask(event, { newTask })}
       >
-        <Form.Group className="mb-3">
-          <Form.Label>NOVA TAREFA</Form.Label>
+        <Form.Group className="mb-3 form-add-task">
+          <h3>NOVA TAREFA</h3>
           <Form.Control
             type="text"
             value={ newTask }
@@ -87,6 +89,7 @@ function TaskList() {
         <Button
           type="submit"
           disabled={ !(newTask.length > 0) }
+          className="add-task-btn"
         >
           Adicionar Tarefa
         </Button>
@@ -105,7 +108,7 @@ function TaskList() {
                         <p>
                           { tasks.task }
                         </p>
-                        <p>{`Status: ${tasks.status}`}</p>
+                        <p style={{color: 'purple' }}>{`Status: ${tasks.status}`}</p>
                         <Button
                           type="button"
                           variant="info"

@@ -23,7 +23,7 @@ function NavBar() {
   }
 
   return (
-    <Navbar>
+    <Navbar className="main-container-header">
       <Container>
         <Navbar.Brand>{name}</Navbar.Brand>
         <Navbar.Toggle />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { readStorage, removeKey } from '../utils/localStorage';
+import { useNavigate } from 'react-router-dom';
 
 import '../styles/NavBar.css';
 
@@ -11,14 +11,12 @@ function NavBar() {
   useEffect(() => {
     const user = readStorage();
 
-    if (!user.name) navigate('/login');
-
     setName(user.name)
-  },[navigate]);
+  }, []);
 
   const logoutBtn = () => {
     removeKey();
-    navigate('/login');
+    navigate('/login')
   }
 
   return (

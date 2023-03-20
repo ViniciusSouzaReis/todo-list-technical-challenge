@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Users.associate = (models) => {
-      Users.hasMany(models.UserTasks, { foreignKey: 'user_id', as: 'user' });
+      Users.hasMany(models.UserTasks, { foreignKey: 'user_id', as: 'list' });
     };
 
   return Users;

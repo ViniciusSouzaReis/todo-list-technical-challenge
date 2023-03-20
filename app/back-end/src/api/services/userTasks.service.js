@@ -11,7 +11,16 @@ const getUserTasks = async (id) => {
   return {type: 200, message: getUser};
 };
 
+const checkExistTask = async (data) => {
+  const getTask = await UserTasks.findOne({ where: { task: data } });
+  return getTask;
+};
+
 const createTask = async (id, data) => {
+  const checkTask = await checkExistTask(data);
+
+  if(checkTask) return { type: 409, message: 'Task already exists!'  }
+
   const newTask = {
     user_id: id,
     task: data,
@@ -19,10 +28,16 @@ const createTask = async (id, data) => {
 
   await UserTasks.create(newTask);
 
-  return { type: 201, message: 'Task created' };
+  return { type: 201, message: 'Task created!' };
 };
+
+const deleteTask = async (id, data) => {
+  const getTask = await UserTasks.destroy({ where: { user_id: id, task: data } });
+  return getTask;
+}
 
 module.exports = {
   getUserTasks,
   createTask,
+  deleteTask,
 }

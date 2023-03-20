@@ -1,0 +1,16 @@
+.main-container-tasks {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px 20% 0;
+}
+
+.form-add-task {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-task-btn {
+  margin-bottom: 40px;
+}

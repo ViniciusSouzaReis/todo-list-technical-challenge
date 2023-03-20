@@ -1,5 +1,7 @@
-header {
+.main-container-header {
   display: flex;
   flex-direction: row;
+  font-weight: bold;
   justify-content: space-around;
+  background-color: aqua;
 }

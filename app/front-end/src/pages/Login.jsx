@@ -8,7 +8,6 @@ import { writeStorage, readStorage, removeKey } from '../utils/localStorage';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [isLogged, setIsLogged] = useState(false);
   const [invalidUser, setInvalidUser] = useState(false);
   const navigate = useNavigate();
 
@@ -43,7 +42,7 @@ function Login() {
       }
     }
 
-    if (user.length !== 0) verifyToken();
+    if (user.token) verifyToken();
   });
 
   return (
@@ -59,7 +58,7 @@ function Login() {
               id="email"
               value={ email }
               onChange={ ({ target: { value } }) => setEmail(value) }
-              placeholder="Login"
+              placeholder="E-mail"
             />
           </label>
           <label htmlFor="password">
@@ -90,6 +89,13 @@ function Login() {
             disabled={ !(verifyemail) }
           >
             Entrar
+          </button>
+          <button
+            data-testid="common_register__button-register"
+            type="button"
+            onClick={ () => navigate('/register') }
+          >
+            Ainda não tenho conta
           </button>
       </form>
     </section>

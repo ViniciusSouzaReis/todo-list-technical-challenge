@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 import httpRequestAxios from '../services/httpRequestAxios';
 import httpCodeHandler from '../assets/httpCodeHandler';
+
+import '../styles/Register.css';
 
 const NAME_MINIMAL_LENGTH = 10;
 const PASSWORD_MINIMAL_LENGTH = 6;
@@ -45,45 +49,36 @@ function Register() {
   };
 
   return (
-    <section>
-      <form
+    <section className='main-container-register'>
+      <Form
         onSubmit={ (event) => registerDBUser(event, { name, email, password }) }
       >
-      <label htmlFor="name">
-          {' '}
-          Nome
-          <input
+        <h1>CADASTRAR</h1>
+        <Form.Group className="mb-3">
+          <Form.Label>Nome</Form.Label>
+          <Form.Control 
             type="text"
+            placeholder="Nome Completo"
             name="name"
             id="name"
-            data-testid="common_register__input-name"
             value={ name }
             onChange={ ({ target }) => setName(target.value) }
-            placeholder="Nome e sobrenome"
           />
-        </label>
-        <label
-          htmlFor="email"
-          className="registerEmailLabel"
-        >
-          {' '}
-          Email
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Email</Form.Label>
+          <Form.Control 
             type="email"
             name="email"
             id="email"
-            data-testid="common_register__input-email"
             value={ email }
             onChange={ ({ target }) => setEmail(target.value) }
+            placeholder="email@email.com"
           />
-        </label>
-        <label
-          htmlFor="password"
-          className="registerPasswordLabel"
-        >
-          {' '}
-          Senha
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Senha</Form.Label>
+          <Form.Control
             type="password"
             name="password"
             id="password"
@@ -92,43 +87,45 @@ function Register() {
             onChange={ ({ target }) => setPassword(target.value) }
             placeholder="Minimo 6 caracteres"
           />
-        </label>
-        <button
+        </Form.Group>
+        <Button
           type="submit"
-          data-testid="common_register__button-register"
+          variant="success"
           disabled={ !(verifyemail && verifyName && verifyPassword) }
         >
           Registrar
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
+          variant="secondary"
           onClick={ () => navigate('/login') }
         >
           Voltar
-        </button>
+        </Button>
+        <br></br>
         {
           (invalidUser)
             ? (
-              <p>
+              <Form.Text className="text-muted">
                 {
                   `Usuario ja cadatrado. Tente um novo e-mail.`
                 }
-              </p>
+              </Form.Text>
             )
             : null
           }
           {
           (userCreated)
             ? (
-              <p>
+              <Form.Text className="text-muted">
                 {
                   `Usuario registrado!`
                 }
-              </p>
+              </Form.Text>
             )
             : null
           }
-      </form>
+      </Form>
     </section>
   );
 };

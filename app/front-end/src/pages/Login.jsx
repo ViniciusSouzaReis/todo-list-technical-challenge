@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import httpRequestAxios from '../services/httpRequestAxios';
 import httpCodeHandler from '../assets/httpCodeHandler';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 import { writeStorage, readStorage, removeKey } from '../utils/localStorage';
+
+import '../styles/Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -46,58 +50,65 @@ function Login() {
   });
 
   return (
-    <section>
-      <form
+    <section className='main-container-login'>
+      <Form
         onSubmit={ (event) => login(event, { email, password })}
       >
         <h1>Área do usuário</h1>
-        <label htmlFor="email">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={ email }
-              onChange={ ({ target: { value } }) => setEmail(value) }
-              placeholder="E-mail"
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="email">Endereco de e-mail</Form.Label>
+          <Form.Control 
+            type="email" 
+            placeholder="email"
+            name="email"
+            id="email"
+            value={ email }
+            onChange={ ({ target: { value } }) => setEmail(value) }
+          />
+          <Form.Text className="text-muted">
+            Nunca compartilharemos seu e-mail com mais ninguém.
+          </Form.Text>
+        </Form.Group>
+          <Form.Group className="mb-3">
+          <Form.Label>Senha</Form.Label>
+          <Form.Control 
+            type="password"
+            placeholder="Senha" 
+            name="password"
+            id="password"
+            value={ password }
+            onChange={ ({ target: { value } }) => setPassword(value) }
             />
-          </label>
-          <label htmlFor="password">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={ password }
-              onChange={ ({ target: { value } }) => setPassword(value) }
-              placeholder="Senha"
-            />
-          </label>
+        </Form.Group>
           {
             (invalidUser)
               ? (
-                <p>
+                <Form.Text className="text-muted">
                   {
                     `O endereço de e-mail ou a senha não estão corretos.
                     Por favor, tente novamente.`
                   }
-                </p>
+                </Form.Text>
               )
               : null
           }
-          <button
-            data-testid="login__login_btn"
+          <br></br>
+          <Button
+            variant="success"
             type="submit"
             disabled={ !(verifyemail) }
           >
             Entrar
-          </button>
-          <button
+          </Button>
+          <Button
             data-testid="common_register__button-register"
+            variant="primary"
             type="button"
             onClick={ () => navigate('/register') }
           >
             Ainda não tenho conta
-          </button>
-      </form>
+          </Button>
+      </Form>
     </section>
   )
 }

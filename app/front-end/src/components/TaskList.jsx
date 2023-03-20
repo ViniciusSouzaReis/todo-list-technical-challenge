@@ -39,15 +39,28 @@ function TaskList() {
   },[user, dispatch]);
 
 
-  const editBtn = (target) => {
-    console.log(target.previousElementSibling);
+  const editBtn = async (target, status) => {
+    const getValue = target.previousElementSibling.previousElementSibling.innerHTML;
+
+    const body = {
+      data: {
+        value: getValue,
+        status,
+      }
+    };
+
+    if(status !== 'Finalizada') {
+      await httpRequestAxios('patch', `http://localhost:3001/update/${user.id}`, body);
+      setDispatch(!dispatch);
+    }
   };
 
   const deleteBtn = async (target) => {
-    const getValue = target.previousElementSibling.previousElementSibling.innerHTML;
+    const getValue = target.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML;
 
     await httpRequestAxios('delete', `http://localhost:3001/delete/${user.id}/${getValue}`, {});
     setDispatch(!dispatch);
+    setNewTask('');
   };
   
   return (
@@ -83,11 +96,12 @@ function TaskList() {
                 <li>
                   { tasks.task }
                 </li>
+                <p>{`Status: ${tasks.status}`}</p>
                 <button
                   type="button"
-                  onClick={ ({ target }) => editBtn(target) }
+                  onClick={ ({ target }) => editBtn(target, tasks.status) }
                 >
-                  Editar
+                  Atualizar Status
                 </button>
                 <button
                   type="button"

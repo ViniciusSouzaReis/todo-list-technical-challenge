@@ -24,6 +24,7 @@ const createTask = async (id, data) => {
   const newTask = {
     user_id: id,
     task: data,
+    status: 'A fazer',
   }
 
   await UserTasks.create(newTask);
@@ -36,8 +37,22 @@ const deleteTask = async (id, data) => {
   return getTask;
 }
 
+const updateTaskStatus = async (id, data) => {
+  let newStatus = 'Em progresso';
+
+  if(data.status === newStatus) {
+    newStatus = 'Finalizada';
+  }
+
+  const getTask = await UserTasks.update(
+    { status: newStatus },
+    { where: { user_id: id, task: data.value } });
+  return getTask;
+}
+
 module.exports = {
   getUserTasks,
   createTask,
   deleteTask,
+  updateTaskStatus,
 }

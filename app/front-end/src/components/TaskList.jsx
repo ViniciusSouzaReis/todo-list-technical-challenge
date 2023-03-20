@@ -93,22 +93,51 @@ function TaskList() {
             <ol>
             {list?.map((tasks, index) => (
               <div key={ index }>
-                <li>
-                  { tasks.task }
-                </li>
-                <p>{`Status: ${tasks.status}`}</p>
-                <button
-                  type="button"
-                  onClick={ ({ target }) => editBtn(target, tasks.status) }
-                >
-                  Atualizar Status
-                </button>
-                <button
-                  type="button"
-                  onClick={ ({ target }) => deleteBtn(target) }
-                >
-                  Deletar
-                </button>
+                {
+                  (tasks.status !== "Finalizada") ? (
+                    <>
+                      <li>
+                        { tasks.task }
+                      </li>
+                      <p>{`Status: ${tasks.status}`}</p>
+                      <button
+                        type="button"
+                        onClick={ ({ target }) => editBtn(target, tasks.status) }
+                      >
+                        Atualizar Status
+                      </button>
+                      <button
+                        type="button"
+                        onClick={ ({ target }) => deleteBtn(target) }
+                      >
+                        Deletar
+                      </button>
+                    </>
+                  ) : null
+                }
+              </div>
+            ))}
+            </ol>
+          )
+        }
+        <h3>LISTA DE TAREFAS FINALIZADAS: </h3>
+        {
+          (checkList) ? (
+            <p>Adicione novas tarefas</p>
+          ) : (
+            <ol>
+            {list?.map((tasks, index) => (
+              <div key={ index }>
+                {
+                  (tasks.status === "Finalizada") ? (
+                    <>
+                      <li>
+                        { tasks.task }
+                      </li>
+                      <p>{`Status: ${tasks.status}`}</p>
+                    </>
+                  ) : null
+                }
               </div>
             ))}
             </ol>

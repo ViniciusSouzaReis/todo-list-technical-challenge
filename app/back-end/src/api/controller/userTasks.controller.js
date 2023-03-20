@@ -26,8 +26,6 @@ const updateTask = async (req, res) => {
   const { id } = req.params;
   const { data } = req.body;
 
-  console.log(data);
-
   await service.updateTaskStatus(Number(id), data);
 
   return res.status(200).end();

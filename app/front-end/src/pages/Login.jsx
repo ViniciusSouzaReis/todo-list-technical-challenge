@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 
 import { writeStorage, readStorage, removeKey } from '../utils/localStorage';
 
+import '../styles/Login.css';
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,12 +50,12 @@ function Login() {
   });
 
   return (
-    <section>
+    <section className='main-container-login'>
       <Form
         onSubmit={ (event) => login(event, { email, password })}
       >
         <h1>Área do usuário</h1>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label htmlFor="email">Endereco de e-mail</Form.Label>
           <Form.Control 
             type="email" 
@@ -67,7 +69,7 @@ function Login() {
             Nunca compartilharemos seu e-mail com mais ninguém.
           </Form.Text>
         </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
           <Form.Label>Senha</Form.Label>
           <Form.Control 
             type="password"

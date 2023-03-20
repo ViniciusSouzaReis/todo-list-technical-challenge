@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { readStorage } from '../utils/localStorage';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 import httpRequestAxios from '../services/httpRequestAxios';
 import httpCodeHandler from '../assets/httpCodeHandler';
@@ -24,6 +27,7 @@ function TaskList() {
     if (httpCodeHandler.conflict(status)) setTaskExist(true);
     if (httpCodeHandler.created(status)) setTaskExist(false);
     setDispatch(!dispatch);
+    setNewTask('');
   };
 
   useEffect(() => {
@@ -60,87 +64,90 @@ function TaskList() {
 
     await httpRequestAxios('delete', `http://localhost:3001/delete/${user.id}/${getValue}`, {});
     setDispatch(!dispatch);
-    setNewTask('');
   };
   
   return (
     <section>
-      <form 
+      <Form 
         onSubmit={ (event) => registerTask(event, { newTask })}
       >
-        <input
-          type="text"
-          onChange={ ({ target: { value } }) => setNewTask(value) }
-          placeholder="Nova tarefa"
-        />
-        <button
+        <Form.Group className="mb-3">
+          <Form.Label>NOVA TAREFA</Form.Label>
+          <Form.Control
+            type="text"
+            value={ newTask }
+            onChange={ ({ target: { value } }) => setNewTask(value) }
+            placeholder="Digite uma nova tarefa" />
+        </Form.Group>
+        {
+          (tasksExist) ? (
+            <Form.Text className="text-muted">A tarefa ja existe!</Form.Text>
+          ) : null
+        }
+        <Button
           type="submit"
           disabled={ !(newTask.length > 0) }
         >
           Adicionar Tarefa
-        </button>
-        {
-          (tasksExist) ? (
-            <p>A tarefa ja existe!</p>
-          ) : null
-        }
-      </form>
+        </Button>
+      </Form>
       <h3>LISTA DE TAREFAS: </h3>
         {
           (checkList) ? (
-            <p>Adicione novas tarefas</p>
+            <Form.Text className="text-muted">Adicione novas tarefas</Form.Text>
           ) : (
-            <ol>
-            {list?.map((tasks, index) => (
-              <div key={ index }>
-                {
-                  (tasks.status !== "Finalizada") ? (
-                    <>
-                      <li>
-                        { tasks.task }
-                      </li>
-                      <p>{`Status: ${tasks.status}`}</p>
-                      <button
-                        type="button"
-                        onClick={ ({ target }) => editBtn(target, tasks.status) }
-                      >
-                        Atualizar Status
-                      </button>
-                      <button
-                        type="button"
-                        onClick={ ({ target }) => deleteBtn(target) }
-                      >
-                        Deletar
-                      </button>
-                    </>
-                  ) : null
-                }
-              </div>
-            ))}
-            </ol>
+            <ListGroup>
+              {list?.map((tasks, index) => (
+                <div key={ index }>
+                  {
+                    (tasks.status !== "Finalizada") ? (
+                      <ListGroup.Item>
+                        <p>
+                          { tasks.task }
+                        </p>
+                        <p>{`Status: ${tasks.status}`}</p>
+                        <Button
+                          type="button"
+                          variant="info"
+                          onClick={ ({ target }) => editBtn(target, tasks.status) }
+                        >
+                          Atualizar Status
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="danger"
+                          onClick={ ({ target }) => deleteBtn(target) }
+                        >
+                          Deletar
+                        </Button>
+                      </ListGroup.Item>
+                    ) : null
+                  }
+                </div>
+              ))}
+            </ListGroup>
           )
         }
+        <br></br>
+        <br></br>
         <h3>LISTA DE TAREFAS FINALIZADAS: </h3>
         {
           (checkList) ? (
             <p>Adicione novas tarefas</p>
           ) : (
-            <ol>
+            <ListGroup variant="flush">
             {list?.map((tasks, index) => (
               <div key={ index }>
                 {
                   (tasks.status === "Finalizada") ? (
-                    <>
-                      <li>
-                        { tasks.task }
-                      </li>
-                      <p>{`Status: ${tasks.status}`}</p>
-                    </>
+                    <ListGroup.Item disabled>
+                      { tasks.task }
+                    </ListGroup.Item>
                   ) : null
                 }
               </div>
             ))}
-            </ol>
+            </ListGroup>
           )
         }
     </section>

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { readStorage, removeKey } from '../utils/localStorage';
 import { useNavigate } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 
 import '../styles/NavBar.css';
 
@@ -20,16 +23,23 @@ function NavBar() {
   }
 
   return (
-    <header>
-      <h2>{name}</h2>
-      <button 
-        type="button"
-        onClick={ () => logoutBtn() }
-      >
-        Sair
-      </button>
-    </header>
-    
+    <Navbar>
+      <Container>
+        <Navbar.Brand>{name}</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            <Button 
+              variant="warning"
+              type="button"
+              onClick={ () => logoutBtn() }
+            >
+              Sair
+            </Button>
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

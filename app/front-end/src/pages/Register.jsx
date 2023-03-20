@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import httpRequestAxios from '../services/httpRequestAxios';
 import httpCodeHandler from '../assets/httpCodeHandler';
 
+import '../styles/Register.css';
+
 const NAME_MINIMAL_LENGTH = 10;
 const PASSWORD_MINIMAL_LENGTH = 6;
 
@@ -47,11 +49,12 @@ function Register() {
   };
 
   return (
-    <section>
+    <section className='main-container-register'>
       <Form
         onSubmit={ (event) => registerDBUser(event, { name, email, password }) }
       >
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <h1>CADASTRAR</h1>
+        <Form.Group className="mb-3">
           <Form.Label>Nome</Form.Label>
           <Form.Control 
             type="text"
@@ -62,7 +65,7 @@ function Register() {
             onChange={ ({ target }) => setName(target.value) }
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
           <Form.Control 
             type="email"
@@ -73,7 +76,7 @@ function Register() {
             placeholder="email@email.com"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
           <Form.Label>Senha</Form.Label>
           <Form.Control
             type="password"

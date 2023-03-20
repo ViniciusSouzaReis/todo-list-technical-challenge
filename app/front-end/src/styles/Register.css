@@ -1,0 +1,11 @@
+.main-container-register {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+}
+
+h1 {
+  font-weight: 100px;
+  font-family: 'Times New Roman', Times, serif;
+}

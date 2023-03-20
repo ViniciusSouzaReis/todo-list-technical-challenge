@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       references: { model: 'Users', key: 'id' }
     },
     task: DataTypes.STRING,
+    status: DataTypes.STRING,
   },
     {
       timestamps: false,

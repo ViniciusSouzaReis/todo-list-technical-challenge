@@ -17,7 +17,18 @@ const create = async (req, res) => {
 
 const deleteTask = async (req, res) => {
   const { id, data } = req.params;
- await service.deleteTask(Number(id), data);
+  await service.deleteTask(Number(id), data);
+
+  return res.status(200).end();
+};
+
+const updateTask = async (req, res) => {
+  const { id } = req.params;
+  const { data } = req.body;
+
+  console.log(data);
+
+  await service.updateTaskStatus(Number(id), data);
 
   return res.status(200).end();
 };
@@ -26,4 +37,5 @@ module.exports = {
   getIdTask,
   create,
   deleteTask,
+  updateTask,
 };

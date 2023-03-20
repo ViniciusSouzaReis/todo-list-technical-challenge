@@ -1,0 +1,6 @@
+/front-end
+/back-end/src/database/
+seeders
+/src/tests/
+jest.config.js
+/src/coverage

@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "db:reset": "cd back-end/src/database && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "db:start": "node back-end/src/api/server.js",
-    "dev": "nodemon back-end/src/api/server.js"
+    "dev": "nodemon back-end/src/api/server.js",
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "keywords": [],
   "author": "",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@tsconfig/node16": "1.0",
+    "eslint-config-trybe-backend": "^1.0.4",
     "nodemon": "2.0.15",
     "sequelize-cli": "6.2.0"
   }

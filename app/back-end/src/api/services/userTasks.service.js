@@ -6,9 +6,9 @@ const getUserTasks = async (id) => {
     attributes: { exclude: ['user_id', 'userId'] },
   });
 
-  if (getUser.length < 1) return {type: 404, message: 'Tasks not found'};
+  if (getUser.length < 1) return { type: 404, message: 'Tasks not found' };
 
-  return {type: 200, message: getUser};
+  return { type: 200, message: getUser };
 };
 
 const checkExistTask = async (id, data) => {
@@ -19,13 +19,13 @@ const checkExistTask = async (id, data) => {
 const createTask = async (id, data) => {
   const checkTask = await checkExistTask(id, data);
 
-  if(checkTask) return { type: 409, message: 'Task already exists!'  }
+  if (checkTask) return { type: 409, message: 'Task already exists!' };
 
   const newTask = {
     user_id: id,
     task: data,
     status: 'A fazer',
-  }
+  };
 
   await UserTasks.create(newTask);
 
@@ -35,24 +35,26 @@ const createTask = async (id, data) => {
 const deleteTask = async (id, data) => {
   const getTask = await UserTasks.destroy({ where: { user_id: id, task: data } });
   return getTask;
-}
+};
 
 const updateTaskStatus = async (id, data) => {
   let newStatus = 'Em progresso';
 
-  if(data.status === newStatus) {
+  if (data.status === newStatus) {
     newStatus = 'Finalizada';
   }
 
   const getTask = await UserTasks.update(
     { status: newStatus },
-    { where: { user_id: id, task: data.value } });
-  return getTask;
-}
+    { where: { user_id: id, task: data.value } },
+    );
+
+    return getTask;
+  };
 
 module.exports = {
   getUserTasks,
   createTask,
   deleteTask,
   updateTaskStatus,
-}
+};

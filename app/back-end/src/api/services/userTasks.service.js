@@ -11,13 +11,13 @@ const getUserTasks = async (id) => {
   return {type: 200, message: getUser};
 };
 
-const checkExistTask = async (data) => {
-  const getTask = await UserTasks.findOne({ where: { task: data } });
+const checkExistTask = async (id, data) => {
+  const getTask = await UserTasks.findOne({ where: { user_id: id, task: data } });
   return getTask;
 };
 
 const createTask = async (id, data) => {
-  const checkTask = await checkExistTask(data);
+  const checkTask = await checkExistTask(id, data);
 
   if(checkTask) return { type: 409, message: 'Task already exists!'  }
 

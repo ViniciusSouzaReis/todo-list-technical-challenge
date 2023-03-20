@@ -61,12 +61,12 @@ function Login() {
             type="email" 
             placeholder="email"
             name="email"
-            id="email"
+            data-testid="common_login__input-email"
             value={ email }
             onChange={ ({ target: { value } }) => setEmail(value) }
           />
           <Form.Text className="text-muted">
-            Nunca compartilharemos seu e-mail com mais ninguém.
+            Nunca compartilharemos suas informações.
           </Form.Text>
         </Form.Group>
           <Form.Group className="mb-3">
@@ -75,7 +75,7 @@ function Login() {
             type="password"
             placeholder="Senha" 
             name="password"
-            id="password"
+            data-testid="common_login__input-password"
             value={ password }
             onChange={ ({ target: { value } }) => setPassword(value) }
             />
@@ -96,12 +96,13 @@ function Login() {
           <Button
             variant="success"
             type="submit"
+            data-testid="common_login__button-login"
             disabled={ !(verifyemail) }
           >
             Entrar
           </Button>
           <Button
-            data-testid="common_register__button-register"
+            data-testid="common_login__button-register"
             variant="primary"
             type="button"
             onClick={ () => navigate('/register') }

@@ -60,7 +60,7 @@ function Register() {
             type="text"
             placeholder="Nome Completo"
             name="name"
-            id="name"
+            data-testid="common_register__input-name"
             value={ name }
             onChange={ ({ target }) => setName(target.value) }
           />
@@ -70,7 +70,7 @@ function Register() {
           <Form.Control 
             type="email"
             name="email"
-            id="email"
+            data-testid="common_register__input-email"
             value={ email }
             onChange={ ({ target }) => setEmail(target.value) }
             placeholder="email@email.com"
@@ -91,6 +91,7 @@ function Register() {
         <Button
           type="submit"
           variant="success"
+          data-testid="common_register__button-register"
           disabled={ !(verifyemail && verifyName && verifyPassword) }
         >
           Registrar
@@ -98,6 +99,7 @@ function Register() {
         <Button
           type="button"
           variant="secondary"
+          data-testid="common_register__button-back"
           onClick={ () => navigate('/login') }
         >
           Voltar
@@ -106,7 +108,10 @@ function Register() {
         {
           (invalidUser)
             ? (
-              <Form.Text className="text-muted">
+              <Form.Text
+                className="text-muted"
+                data-testid="common_register__created-conflic"
+              >
                 {
                   `Usuario ja cadatrado. Tente um novo e-mail.`
                 }
@@ -117,7 +122,10 @@ function Register() {
           {
           (userCreated)
             ? (
-              <Form.Text className="text-muted">
+              <Form.Text 
+                className="text-muted"
+                data-testid="common_register__created-success"
+              >
                 {
                   `Usuario registrado!`
                 }

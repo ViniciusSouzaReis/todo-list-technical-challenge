@@ -77,6 +77,7 @@ function TaskList() {
           <h3>NOVA TAREFA</h3>
           <Form.Control
             type="text"
+            data-testid="common_text__new-task-input-text"
             value={ newTask }
             onChange={ ({ target: { value } }) => setNewTask(value) }
             placeholder="Digite uma nova tarefa" />
@@ -89,6 +90,7 @@ function TaskList() {
         <Button
           type="submit"
           disabled={ !(newTask.length > 0) }
+          data-testid="common_add__button-add"
           className="add-task-btn"
         >
           Adicionar Tarefa

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha back-end/src/tests/**/*$NAME*.test.js --exit",
     "db:reset": "cd back-end/src/database && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "db:start": "node back-end/src/api/server.js",
     "dev": "nodemon back-end/src/api/server.js",

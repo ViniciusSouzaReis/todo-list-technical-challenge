@@ -3,6 +3,8 @@ import { readStorage } from '../utils/localStorage';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import httpRequestAxios from '../services/httpRequestAxios';
 import httpCodeHandler from '../assets/httpCodeHandler';
@@ -48,20 +50,16 @@ function TaskList() {
   },[user, dispatch, list]);
 
 
-  const editBtn = async (target, status) => {
-    const getValue = target.previousElementSibling.previousElementSibling.innerHTML;
-
+  const editBtn = async (target, task) => {
     const body = {
       data: {
-        value: getValue,
-        status,
+        value: target,
+        task,
       }
     };
 
-    if(status !== 'Finalizada') {
-      await httpRequestAxios('patch', `http://localhost:3001/update/${user.id}`, body, { headers: { Authorization: user.token } });
-      setDispatch(!dispatch);
-    }
+    await httpRequestAxios('patch', `http://localhost:3001/update/${user.id}`, body, { headers: { Authorization: user.token } });
+    setDispatch(!dispatch);
   };
 
   const deleteBtn = async (target) => {
@@ -116,13 +114,36 @@ function TaskList() {
                           { tasks.task }
                         </p>
                         <p style={{color: 'purple' }}>{`Status: ${tasks.status}`}</p>
-                        <Button
+                        <DropdownButton 
+                          id="dropdown-basic-button"
+                          title="Atualizar Status"
+                        >
+                          <Dropdown.Item 
+                            href="#/action-1"
+                            onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
+                          >
+                            A fazer
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            href="#/action-2"
+                            onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
+                          >
+                            Em progresso
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            href="#/action-3"
+                            onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
+                          >
+                            Finalizada
+                          </Dropdown.Item>
+                        </DropdownButton>
+                        {/* <Button
                           type="button"
                           variant="info"
                           onClick={ ({ target }) => editBtn(target, tasks.status) }
                         >
                           Atualizar Status
-                        </Button>
+                        </Button> */}
                         <Button
                           type="button"
                           variant="danger"

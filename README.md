@@ -1,9 +1,8 @@
 # todo-list-technical-challenge
 
-
-## Desafio tecnico realizado por Vinicius Luiz de Souza Reis
-### Objetivo do projeto:
-O projeto foi desenvolvido para administracao dos usuarios de suas tarefas(Todo).
+## Objetivo do projeto:
+- O projeto foi desenvolvido por Vinicius Souza como desafio tecnico para processo seletivo.
+- O objetivo foi criar uma lista de tarefas(todo list) com criacao de um banco de dados resposavel por armazenar todas informacoes de usuarios e tarefas. Com uma estrutura de CRUD(Create - Read - Update - Delete) no backend, retornados e recebidos atraves de endpoints.
 
 ## Tecnologias:
 #### - Front-end:
@@ -35,3 +34,5 @@ O projeto foi desenvolvido para administracao dos usuarios de suas tarefas(Todo)
  - npm run db:reset - reseta o banco de dados para dados mocados na pasta /app/back-end/src/database/seeders.
  - npm run dev - executa o banco de dados com o nodemon.
  - npm run lint - correcoes de lint no backend.
+
+## Arquitetura:

@@ -1,10 +1,5 @@
-const jwtVerify = require('../JWT/validateJWT');
-
 const checkToken = async (req, res) => {
-  const { authorization } = req.headers;
-  const { type } = jwtVerify(authorization);
-
-  return res.status(type).end();
+  return res.status(200).end();
 };
 
 module.exports = {

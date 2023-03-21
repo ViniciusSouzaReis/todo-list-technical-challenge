@@ -25,7 +25,7 @@ function TaskList() {
       data: newData.newTask,
     };
 
-    const { status } = await httpRequestAxios('post', `http://localhost:3001/register/${user.id}`, body);
+    const { status } = await httpRequestAxios('post', `http://localhost:3001/register/${user.id}`, body, { headers: { Authorization: user.token } });
     if (httpCodeHandler.conflict(status)) setTaskExist(true);
     if (httpCodeHandler.created(status)) setTaskExist(false);
     setDispatch(!dispatch);
@@ -34,7 +34,7 @@ function TaskList() {
 
   useEffect(() => {
     async function getTasks(id) {
-      const { status, data } = await httpRequestAxios('get', `http://localhost:3001/tasks/${id}`);
+      const { status, data } = await httpRequestAxios('get', `http://localhost:3001/tasks/${id}`, { headers: { Authorization: user.token } });
       if (httpCodeHandler.success(status)) {
         setList(data);
         setCheckList(false);
@@ -56,7 +56,7 @@ function TaskList() {
     };
 
     if(status !== 'Finalizada') {
-      await httpRequestAxios('patch', `http://localhost:3001/update/${user.id}`, body);
+      await httpRequestAxios('patch', `http://localhost:3001/update/${user.id}`, body, { headers: { Authorization: user.token } });
       setDispatch(!dispatch);
     }
   };
@@ -64,7 +64,7 @@ function TaskList() {
   const deleteBtn = async (target) => {
     const getValue = target.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML;
 
-    await httpRequestAxios('delete', `http://localhost:3001/delete/${user.id}/${getValue}`, {});
+    await httpRequestAxios('delete', `http://localhost:3001/delete/${user.id}/${getValue}`, { headers: { Authorization: user.token } });
     setDispatch(!dispatch);
   };
   

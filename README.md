@@ -10,7 +10,7 @@ O projeto foi desenvolvido para administracao dos usuarios de suas tarefas(Todo)
 **React** -
 **Hooks** -
 **axios** -
-**RTL** -
+**RTL**
 **Bootstrap** -
 #### - Back-end:
 **Node.js** -

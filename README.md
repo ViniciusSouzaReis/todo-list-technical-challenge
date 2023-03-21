@@ -18,11 +18,12 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 **Sequelize** -
 **MySQL** -
 **JWT** -
-**md5**
+**md5** -
+**TypeScript** -
 
 ## Como Rodar:
-- Entre na past `/app` e execute o comando `npm install` para instalacao das dependencias do back-end.
-- Apos a instalacao, execute o comando `npm run db:start` para inicio do banco de dados.
+- Entre na past `/app/back-end` e execute o comando `npm install` para instalacao das dependencias do back-end.
+- Apos a instalacao, execute o comando `npm start` para inicio do banco de dados.
 - Em outro terminal, entre na pasta `/app/front-end` e execute o comando `npm install`.
 - Apos a instalacao, execute o comando `npm start` para inicio da aplicacao no front-end.
 

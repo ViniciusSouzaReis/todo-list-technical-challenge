@@ -41,7 +41,10 @@ function Register() {
 
     const { status } = await httpRequestAxios('post', 'http://localhost:3001/register', userData);
 
-    if (httpCodeHandler.conflict(status)) setInvalidUser(true);
+    if (httpCodeHandler.conflict(status)) {
+      setInvalidUser(true)
+      setUserCreated(false)
+    }
     if (httpCodeHandler.created(status)) {
       setInvalidUser(false);
       setUserCreated(true);

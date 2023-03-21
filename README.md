@@ -2,7 +2,8 @@
 
 ## Objetivo do projeto:
 - O projeto foi desenvolvido por Vinicius Souza como desafio tecnico para processo seletivo.
-- O objetivo foi criar uma lista de tarefas(todo list) com criacao de um banco de dados resposavel por armazenar todas informacoes de usuarios e tarefas. Com uma estrutura de CRUD(Create - Read - Update - Delete) no backend, retornados e recebidos atraves de endpoints.
+- O objetivo foi criar uma lista de tarefas(todo list) com criacao de um banco de dados resposavel por armazenar todas informacoes de usuarios e tarefas.
+Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornados e recebidos atraves de endpoints.
 
 ## Tecnologias:
 #### - Front-end:
@@ -10,7 +11,7 @@
 **Hooks** -
 **axios** -
 **RTL**
-**Bootstrap** -
+**Bootstrap**
 #### - Back-end:
 **Node.js** -
 **Express** -

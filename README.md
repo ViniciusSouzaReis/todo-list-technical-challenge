@@ -28,5 +28,4 @@ O projeto foi desenvolvido para administracao dos usuarios de suas tarefas(Todo)
 ## Comando axiliares:
 - /app/front-end:
   *npm test - executa os testes de front end.
-  <br></br>
   *npm run test:coverage - executa os teste mostrando o % de cobertura total.

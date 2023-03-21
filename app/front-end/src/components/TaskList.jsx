@@ -37,12 +37,15 @@ function TaskList() {
       const { status, data } = await httpRequestAxios('get', `http://localhost:3001/tasks/${id}`, { headers: { Authorization: user.token } });
       if (httpCodeHandler.success(status)) {
         setList(data);
-        setCheckList(false);
+        setCheckList(true);
+        if (list.some((task) => task.status === 'A fazer' || task.status === 'Em progresso')) {
+          setCheckList(false);
+        }
       }
       if (httpCodeHandler.notFound(status)) setCheckList(true);
     }
     getTasks(user.id);
-  },[user, dispatch]);
+  },[user, dispatch, list]);
 
 
   const editBtn = async (target, status) => {
@@ -82,19 +85,21 @@ function TaskList() {
             onChange={ ({ target: { value } }) => setNewTask(value) }
             placeholder="Digite uma nova tarefa" />
         </Form.Group>
-        {
-          (tasksExist) ? (
-            <Form.Text className="text-muted">A tarefa ja existe!</Form.Text>
-          ) : null
-        }
-        <Button
-          type="submit"
-          disabled={ !(newTask.length > 0) }
-          data-testid="common_add__button-add"
-          className="add-task-btn"
-        >
-          Adicionar Tarefa
-        </Button>
+        <div className='buttom-container'>
+          {
+            (tasksExist) ? (
+              <Form.Text className="text-muted">A tarefa ja existe!</Form.Text>
+            ) : null
+          }
+          <Button
+            type="submit"
+            disabled={ !(newTask.length > 0) }
+            data-testid="common_add__button-add"
+            className="add-task-btn"
+          >
+            Adicionar Tarefa
+          </Button>
+        </div>
       </Form>
       <h3>LISTA DE TAREFAS: </h3>
         {
@@ -133,27 +138,23 @@ function TaskList() {
             </ListGroup>
           )
         }
-        <br></br>
-        <br></br>
-        <h3>LISTA DE TAREFAS FINALIZADAS: </h3>
+      <br></br>
+      <br></br>
+      <h3>LISTA DE TAREFAS FINALIZADAS: </h3>
         {
-          (checkList) ? (
-            <p>Adicione novas tarefas</p>
-          ) : (
-            <ListGroup variant="flush">
-            {list?.map((tasks, index) => (
-              <div key={ index }>
-                {
-                  (tasks.status === "Finalizada") ? (
-                    <ListGroup.Item disabled>
-                      { tasks.task }
-                    </ListGroup.Item>
-                  ) : null
-                }
-              </div>
-            ))}
-            </ListGroup>
-          )
+          <ListGroup variant="flush">
+          {list?.map((tasks, index) => (
+            <div key={ index }>
+              {
+                (tasks.status === "Finalizada") ? (
+                  <ListGroup.Item disabled>
+                    { tasks.task }
+                  </ListGroup.Item>
+                ) : null
+              }
+            </div>
+          ))}
+          </ListGroup>
         }
     </section>
   );

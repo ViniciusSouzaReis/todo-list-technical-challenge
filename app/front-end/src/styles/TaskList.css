@@ -13,4 +13,10 @@
 
 .add-task-btn {
   margin-bottom: 40px;
+  margin-right: 85%;
+}
+
+.buttom-container {
+  display: flex;
+  flex-direction: column;
 }

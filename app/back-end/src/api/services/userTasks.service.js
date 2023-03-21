@@ -38,19 +38,13 @@ const deleteTask = async (id, data) => {
 };
 
 const updateTaskStatus = async (id, data) => {
-  let newStatus = 'Em progresso';
-
-  if (data.status === newStatus) {
-    newStatus = 'Finalizada';
-  }
-
   const updatedTask = await UserTasks.update(
-    { status: newStatus },
-    { where: { user_id: id, task: data.value } },
+    { status: data.value },
+    { where: { user_id: id, task: data.task } },
     );
 
     return updatedTask;
-  };
+};
 
 module.exports = {
   getUserTasks,

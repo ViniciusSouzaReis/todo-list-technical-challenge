@@ -10,7 +10,7 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 **React** -
 **Hooks** -
 **axios** -
-**RTL**
+**RTL** -
 **Bootstrap**
 #### - Back-end:
 **Node.js** -

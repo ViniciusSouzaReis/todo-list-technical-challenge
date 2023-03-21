@@ -62,10 +62,8 @@ function TaskList() {
     setDispatch(!dispatch);
   };
 
-  const deleteBtn = async (target) => {
-    const getValue = target.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML;
-
-    await httpRequestAxios('delete', `http://localhost:3001/delete/${user.id}/${getValue}`, { headers: { Authorization: user.token } });
+  const deleteBtn = async (task) => {
+    await httpRequestAxios('delete', `http://localhost:3001/delete/${user.id}/${task}`, { headers: { Authorization: user.token } });
     setDispatch(!dispatch);
   };
   
@@ -110,47 +108,53 @@ function TaskList() {
                   {
                     (tasks.status !== "Finalizada") ? (
                       <ListGroup.Item>
-                        <p>
-                          { tasks.task }
-                        </p>
-                        <p style={{color: 'purple' }}>{`Status: ${tasks.status}`}</p>
-                        <DropdownButton 
-                          id="dropdown-basic-button"
-                          title="Atualizar Status"
-                        >
-                          <Dropdown.Item 
-                            href="#/action-1"
-                            onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
-                          >
-                            A fazer
-                          </Dropdown.Item>
-                          <Dropdown.Item
-                            href="#/action-2"
-                            onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
-                          >
-                            Em progresso
-                          </Dropdown.Item>
-                          <Dropdown.Item
-                            href="#/action-3"
-                            onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
-                          >
-                            Finalizada
-                          </Dropdown.Item>
-                        </DropdownButton>
-                        {/* <Button
-                          type="button"
-                          variant="info"
-                          onClick={ ({ target }) => editBtn(target, tasks.status) }
-                        >
-                          Atualizar Status
-                        </Button> */}
-                        <Button
-                          type="button"
-                          variant="danger"
-                          onClick={ ({ target }) => deleteBtn(target) }
-                        >
-                          Deletar
-                        </Button>
+                        <div className='main-list'>
+                          <div className='main-task'>
+                            <p>
+                              { tasks.task }
+                            </p>
+                            <p style={{color: 'purple' }}>{`Status: ${tasks.status}`}</p>
+                          </div>
+                          <div className='main-buttons'>
+                            <DropdownButton 
+                              id="dropdown-basic-button"
+                              title="Atualizar Status"
+                            >
+                              <Dropdown.Item 
+                                href="#/action-1"
+                                onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
+                              >
+                                A fazer
+                              </Dropdown.Item>
+                              <Dropdown.Item
+                                href="#/action-2"
+                                onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
+                              >
+                                Em progresso
+                              </Dropdown.Item>
+                              <Dropdown.Item
+                                href="#/action-3"
+                                onClick={ ({ target }) => editBtn(target.innerHTML, tasks.task) }
+                              >
+                                Finalizada
+                              </Dropdown.Item>
+                            </DropdownButton>
+                            {/* <Button
+                              type="button"
+                              variant="info"
+                              onClick={ ({ target }) => editBtn(target, tasks.status) }
+                            >
+                              Atualizar Status
+                            </Button> */}
+                            <Button
+                              type="button"
+                              variant="danger"
+                              onClick={ ({ target }) => deleteBtn(tasks.task) }
+                            >
+                              Deletar
+                            </Button>
+                          </div>
+                        </div>
                       </ListGroup.Item>
                     ) : null
                   }

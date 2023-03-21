@@ -93,22 +93,24 @@ function Login() {
               : null
           }
           <br></br>
-          <Button
-            variant="success"
-            type="submit"
-            data-testid="common_login__button-login"
-            disabled={ !(verifyemail) }
-          >
-            Entrar
-          </Button>
-          <Button
-            data-testid="common_login__button-register"
-            variant="primary"
-            type="button"
-            onClick={ () => navigate('/register') }
-          >
-            Ainda não tenho conta
-          </Button>
+          <div className='buttons-container-login'>
+            <Button
+              variant="success"
+              type="submit"
+              data-testid="common_login__button-login"
+              disabled={ !(verifyemail) }
+            >
+              Entrar
+            </Button>
+            <Button
+              data-testid="common_login__button-register"
+              variant="primary"
+              type="button"
+              onClick={ () => navigate('/register') }
+            >
+              Ainda não tenho conta
+            </Button>
+          </div>
       </Form>
     </section>
   )

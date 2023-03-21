@@ -91,22 +91,24 @@ function Register() {
             placeholder="Minimo 6 caracteres"
           />
         </Form.Group>
-        <Button
-          type="submit"
-          variant="success"
-          data-testid="common_register__button-register"
-          disabled={ !(verifyemail && verifyName && verifyPassword) }
-        >
-          Registrar
-        </Button>
-        <Button
-          type="button"
-          variant="secondary"
-          data-testid="common_register__button-back"
-          onClick={ () => navigate('/login') }
-        >
-          Voltar
-        </Button>
+        <div className='buttons-container-register'>
+          <Button
+            type="submit"
+            variant="success"
+            data-testid="common_register__button-register"
+            disabled={ !(verifyemail && verifyName && verifyPassword) }
+          >
+            Registrar
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            data-testid="common_register__button-back"
+            onClick={ () => navigate('/login') }
+          >
+            Voltar
+          </Button>
+        </div>
         <br></br>
         {
           (invalidUser)

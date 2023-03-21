@@ -116,7 +116,7 @@ function TaskList() {
                             <p style={{color: 'purple' }}>{`Status: ${tasks.status}`}</p>
                           </div>
                           <div className='main-buttons'>
-                            <DropdownButton 
+                            <DropdownButton
                               id="dropdown-basic-button"
                               title="Atualizar Status"
                             >
@@ -139,13 +139,6 @@ function TaskList() {
                                 Finalizada
                               </Dropdown.Item>
                             </DropdownButton>
-                            {/* <Button
-                              type="button"
-                              variant="info"
-                              onClick={ ({ target }) => editBtn(target, tasks.status) }
-                            >
-                              Atualizar Status
-                            </Button> */}
                             <Button
                               type="button"
                               variant="danger"

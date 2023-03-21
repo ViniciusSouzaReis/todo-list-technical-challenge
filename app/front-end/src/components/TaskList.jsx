@@ -27,7 +27,7 @@ function TaskList() {
       data: newData.newTask,
     };
 
-    const { status } = await httpRequestAxios('post', `http://localhost:3001/register/${user.id}`, body, { headers: { Authorization: user.token } });
+    const { status } = await httpRequestAxios('post', `http://localhost:3001/tasks/register/${user.id}`, body, { headers: { Authorization: user.token } });
     if (httpCodeHandler.conflict(status)) setTaskExist(true);
     if (httpCodeHandler.created(status)) setTaskExist(false);
     setDispatch(!dispatch);
@@ -58,12 +58,12 @@ function TaskList() {
       }
     };
 
-    await httpRequestAxios('patch', `http://localhost:3001/update/${user.id}`, body, { headers: { Authorization: user.token } });
+    await httpRequestAxios('patch', `http://localhost:3001/tasks/update/${user.id}`, body, { headers: { Authorization: user.token } });
     setDispatch(!dispatch);
   };
 
   const deleteBtn = async (task) => {
-    await httpRequestAxios('delete', `http://localhost:3001/delete/${user.id}/${task}`, { headers: { Authorization: user.token } });
+    await httpRequestAxios('delete', `http://localhost:3001/tasks/delete/${user.id}/${task}`, { headers: { Authorization: user.token } });
     setDispatch(!dispatch);
   };
   

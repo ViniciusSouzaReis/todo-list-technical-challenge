@@ -3,3 +3,8 @@
   justify-content: center;
   margin-top: 15%;
 }
+
+.buttons-container-login {
+  display: flex;
+  justify-content: space-around;
+}

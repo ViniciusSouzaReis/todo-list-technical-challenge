@@ -19,7 +19,7 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 **MySQL** -
 **JWT** -
 **md5** -
-**TypeScript** -
+**TypeScript**
 
 ## Como Rodar:
 - Entre na past `/app/back-end` e execute o comando `npm install` para instalacao das dependencias do back-end.

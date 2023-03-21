@@ -5,7 +5,7 @@
 ### Objetivo do projeto:
 O projeto foi desenvolvido para administracao dos usuarios de suas tarefas(Todo).
 
-### Tecnologias:
+## Tecnologias:
 #### - Front-end:
 **React** -
 **Hooks** -
@@ -20,11 +20,12 @@ O projeto foi desenvolvido para administracao dos usuarios de suas tarefas(Todo)
 **JWT** -
 **md5**
 
-### Como Rodar:
+## Como Rodar:
 - Entre na past /app e execute o comando npm install para instalacao das dependencias do back-end.
 - Apos a instalacao, execute o comando npm run db:start para inicio do banco de dados.
 - Em outro terminal, entre na pasta /app/front-end e execute o comando npm install.
 - Apos a instalacao, execute o comando npm start para inicio da aplicacao no front-end.
+
 ## Comando axiliares:
  #### /app/front-end:
  - npm test - executa os testes de front end.

@@ -38,3 +38,5 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
  - `npm run lint` - correcoes de lint no backend.
 
 ## Arquitetura:
+Arquitetura baseada em camadas MSC(Model, Service, Controller).
+

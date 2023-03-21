@@ -25,13 +25,18 @@ function NavBar() {
   return (
     <Navbar className="main-container-header">
       <Container>
-        <Navbar.Brand>{name}</Navbar.Brand>
+        <Navbar.Brand
+          data-testid='todo_element-navbar-link-name'
+        >
+          {name}
+        </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
             <Button 
               variant="warning"
               type="button"
+              data-testid='todo_element-navbar-exit-button'
               onClick={ () => logoutBtn() }
             >
               Sair

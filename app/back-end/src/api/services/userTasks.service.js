@@ -44,12 +44,12 @@ const updateTaskStatus = async (id, data) => {
     newStatus = 'Finalizada';
   }
 
-  const getTask = await UserTasks.update(
+  const updatedTask = await UserTasks.update(
     { status: newStatus },
     { where: { user_id: id, task: data.value } },
     );
 
-    return getTask;
+    return updatedTask;
   };
 
 module.exports = {

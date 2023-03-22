@@ -9,8 +9,8 @@
 
 ## DETALHES DO PROJETO
 ### IMAGENS
-<img src="https://i.ibb.co/yS74ZmL/Screenshot-from-2023-03-22-13-10-40.png" alt="Tela de login">
-<img src="https://i.ibb.co/nCxbQrH/Screenshot-from-2023-03-22-13-10-47.png" alt="Tela de cadastro">
+<img src="https://i.ibb.co/P4xk4dz/Screenshot-from-2023-03-22-13-38-49.png" alt="Tela de login">
+<img src="https://i.ibb.co/n0HwdYY/Screenshot-from-2023-03-22-13-38-43.png" alt="Tela de cadastro">
 <img src="https://i.ibb.co/gy81Qt8/Screenshot-from-2023-03-22-13-11-27.png" alt="Tela de tarefas">
 
 ## Tecnologias:

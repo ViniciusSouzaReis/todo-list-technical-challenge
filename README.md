@@ -1,9 +1,11 @@
 # todo-list-technical-challenge
 
+## Autor
+
+- [@vinicius-souza-reis](https://www.linkedin.com/in/vinicius-souza-reis/)
+
 ## Objetivo do projeto:
-- O projeto foi desenvolvido por Vinicius Souza como desafio técnico para processo seletivo.
-- O objetivo foi criar uma lista de tarefas(todo list) com criação de um banco de dados resposável por armazenar todas informações de usuários e tarefas.
-Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornados e recebidos através de endpoints.
+- Elaborar um projeto full stack, ou seja, uma aplicação que contenha backend e frontend. Neste caso, a aplicação é uma lista de tarefas que conta com tela de login, tela de cadastro, tela com lista de atividades onde é possível ler, criar, alterar e deletar atividades relacionadas a um usuário específico. Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornados e recebidos através de endpoints.
 
 ## Tecnologias:
 #### - Front-end:

@@ -5,7 +5,7 @@
 - [@vinicius-souza-reis](https://www.linkedin.com/in/vinicius-souza-reis/)
 
 ## OBJETIVO DO PROJETO:
-- Elaborar um projeto full stack, ou seja, uma aplicação que contenha backend e frontend. Neste caso, a aplicação é uma lista de tarefas que conta com tela de login, tela de cadastro, tela com lista de atividades onde é possível ler, criar, alterar e deletar atividades relacionadas a um usuário específico. Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornados e recebidos através de endpoints.
+- Elaborar um projeto full stack, ou seja, uma aplicação que contenha backend e frontend. Neste caso, a aplicação é uma lista de tarefas que conta com tela de login, tela de cadastro, tela com lista de atividades onde é possível ler, criar, alterar e deletar atividades relacionadas a um usuário específico.
 
 ## DETALHES DO PROJETO
 ### IMAGENS

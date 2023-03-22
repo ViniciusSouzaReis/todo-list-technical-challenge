@@ -2,8 +2,8 @@
 
 ## Objetivo do projeto:
 - O projeto foi desenvolvido por Vinicius Souza como desafio tecnico para processo seletivo.
-- O objetivo foi criar uma lista de tarefas(todo list) com criacao de um banco de dados resposavel por armazenar todas informacoes de usuarios e tarefas.
-Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornados e recebidos atraves de endpoints.
+- O objetivo foi criar uma lista de tarefas(todo list) com criação de um banco de dados resposável por armazenar todas informações de usuários e tarefas.
+Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornados e recebidos através de endpoints.
 
 ## Tecnologias:
 #### - Front-end:
@@ -24,24 +24,24 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 *Arquitetura baseada em camadas MSC(Model, Service, Controller).*
 
 ## Como Rodar:
-- Entre na past `/app/back-end` e execute o comando `npm install` para instalacao das dependencias do back-end.
-- Apos a instalacao, execute o comando `npm start` para inicio do banco de dados.
+- Entre na past `/app/back-end` e execute o comando `npm install` para instalação das dependências do back-end.
+- Apos a instalação, execute o comando `npm start` para início do banco de dados.
 - Em outro terminal, entre na pasta `/app/front-end` e execute o comando `npm install`.
-- Apos a instalacao, execute o comando `npm start` para inicio da aplicacao no front-end.
+- Apos a instalação, execute o comando `npm start` para início da aplicação no front-end.
 
-## Comando axiliares:
+## Comandos axiliares:
  #### /app/front-end:
  - `npm test` - executa os testes de front end.
  - `npm run test:coverage` - executa os teste mostrando o % de cobertura total.
  #### /app/back-end:
- - `npm test` - executa os testes de retorno da api
+ - `npm test` - executa os testes de retorno da api.
  - `npm run db:reset` - reseta o banco de dados para dados mocados na pasta /app/back-end/src/database/seeders.
  - `npm run dev` - executa o banco de dados com o nodemon.
- - `npm run lint` - correcoes de lint no backend.
+ - `npm run lint` - correções de lint no backend.
 
 ## Documentação da API
 
-#### Retorna o usuario com id, nome, email e token
+#### Retorna o usuário com id, nome, email e token
 
 ```http
   POST http://localhost:3001/login
@@ -52,7 +52,7 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 | `email` | `string` | **Obrigatório**.  |
 | `senha` | `string` | **Obrigatório**.  |
 
-#### Registra o usuario no banco de dados
+#### Registra o usuário no banco de dados
 
 ```http
   POST http://localhost:3001/register
@@ -64,7 +64,7 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 | `email`      | `string` | **Obrigatório**.  |
 | `password`      | `string` | **Obrigatório**.  |
 
-#### Faz a verificacao de autenticacao do usuario quando recarrega a pagina
+#### Faz a verificação de autenticação do usuário pelo token quando recarregar a página
 
 ```http
   POST http://localhost:3001/token
@@ -74,7 +74,7 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 | :---------- | :--------- | :------------------------------------------ |
 | `token`      | `string` | **Obrigatório**.  |
 
-#### Retorna todas as tarefas do usuario pelo id
+#### Retorna todas as tarefas do usuário pelo id
 
 ```http
   GET http://localhost:3001/tasks/${id}
@@ -82,9 +82,9 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do usuario que você quer |
+| `id`      | `string` | **Obrigatório**. O ID do usuário que você quer |
 
-#### Adiciona uma nova tarefa ao usuario no banco de dados
+#### Adiciona uma nova tarefa ao usuário no banco de dados
 
 ```http
   POST http://localhost:3001/tasks/register/${id}
@@ -92,8 +92,8 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do usuario que você quer |
-| `data`      | `string` | **Obrigatório**. A tarefa que sera salva |
+| `id`      | `string` | **Obrigatório**. O ID do usuário que você quer |
+| `data`      | `string` | **Obrigatório**. A tarefa que será salva |
 
 #### Deleta uma tarefa do banco de dados
 
@@ -103,10 +103,10 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do usuario que você quer deletar |
-| `data`      | `string` | **Obrigatório**. A tarefa que sera que sera deletado |
+| `id`      | `string` | **Obrigatório**. O ID do usuário que você quer deletar |
+| `data`      | `string` | **Obrigatório**. Informação da tarefa que será deletada |
 
-#### Atualiza o status da terefa desejada
+#### Atualiza o status da tarefa desejada
 
 ```http 
   PATCH http://localhost:3001/tasks/update/${id}
@@ -114,7 +114,7 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do usuario que voce que você quer atualizar |
+| `id`      | `string` | **Obrigatório**. O ID do usuário que você quer atualizar |
 | `data`      | `string` | **Obrigatório**. Chave { value, task } |
 
 

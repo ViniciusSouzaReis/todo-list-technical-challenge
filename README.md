@@ -31,7 +31,7 @@ Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornado
  #### /app/front-end:
  - `npm test` - executa os testes de front end.
  - `npm run test:coverage` - executa os teste mostrando o % de cobertura total.
- #### /app/back-end ou /app:
+ #### /app/back-end:
  - `npm test` - executa os testes de retorno da api
  - `npm run db:reset` - reseta o banco de dados para dados mocados na pasta /app/back-end/src/database/seeders.
  - `npm run dev` - executa o banco de dados com o nodemon.

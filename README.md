@@ -1,7 +1,7 @@
 # todo-list-technical-challenge
 
 ## Objetivo do projeto:
-- O projeto foi desenvolvido por Vinicius Souza como desafio tecnico para processo seletivo.
+- O projeto foi desenvolvido por Vinicius Souza como desafio técnico para processo seletivo.
 - O objetivo foi criar uma lista de tarefas(todo list) com criação de um banco de dados resposável por armazenar todas informações de usuários e tarefas.
 Com uma estrutura de CRUD(Create - Read - Update - Delete) de uma API, retornados e recebidos através de endpoints.
 

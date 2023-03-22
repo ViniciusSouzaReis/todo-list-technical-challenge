@@ -1,4 +1,4 @@
-# Todo List - technical challenge
+# Todo List
 
 ## AUTOR
 
